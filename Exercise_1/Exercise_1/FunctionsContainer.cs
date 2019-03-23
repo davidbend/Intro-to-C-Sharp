@@ -40,5 +40,10 @@ namespace Exercise_1
 
         }
 
+        public List<string> getAllMissions()
+        {
+            List<string> keyList = new List<string>(this.funcs.Keys);
+            return keyList;
+        }
     }
 }

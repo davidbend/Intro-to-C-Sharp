@@ -8,25 +8,35 @@ namespace Exercise_1
 {
     public class ComposedMission : IMission
     {
-        private string type;
-        private string name;
+        public const string MISSION_TYPE = "Composed";
+        public string Name { get; }
+        public string Type { get; }
+        List<Func<double, double>> Funcs { get; }
 
         // Ctor
         public ComposedMission(string name)
         {
-            this.name = name;
-            this.type = "Composed";
+            Name = name;
+            Type = MISSION_TYPE;
+            Funcs = new List<Func<double, double>>();
         }
 
-        public string Name => throw new NotImplementedException();
-
-        public string Type => throw new NotImplementedException();
+        public ComposedMission Add(Func<double, double> func)
+        {
+            Funcs.Add(func);
+            return this;
+        }
 
         public event EventHandler<double> OnCalculate;
 
         public double Calculate(double value)
         {
-            throw new NotImplementedException();
+            foreach(var func in Funcs)
+            {
+                value = func(value);
+            }
+            OnCalculate?.Invoke(this, value);
+            return value;
         }
     }
 }
