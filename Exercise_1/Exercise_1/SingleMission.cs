@@ -24,6 +24,13 @@ namespace Exercise_1
 
         public event EventHandler<double> OnCalculate;
 
+        /// <summary>
+        /// Calculate the value of the function and invoke the event
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>
+        /// the result
+        /// </returns>
         public double Calculate(double value)
         {
             double result = this.Func(value);

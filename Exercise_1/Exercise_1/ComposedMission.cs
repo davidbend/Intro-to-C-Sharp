@@ -21,6 +21,13 @@ namespace Exercise_1
             Funcs = new List<Calc>();
         }
 
+        /// <summary>
+        /// Add function to the composed mission
+        /// </summary>
+        /// <param name="func"></param>
+        /// <returns>
+        /// the object after the function addition
+        /// </returns>
         public ComposedMission Add(Calc func)
         {
             Funcs.Add(func);
@@ -29,6 +36,13 @@ namespace Exercise_1
 
         public event EventHandler<double> OnCalculate;
 
+        /// <summary>
+        /// Calculate the value of all the functions and invoke the event
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>
+        /// the result
+        /// </returns>
         public double Calculate(double value)
         {
             foreach(var func in Funcs)
