@@ -9,13 +9,13 @@ namespace Exercise_1
     public class SingleMission : IMission
     {
         private const string MISSION_TYPE = "Single";
-        private readonly Func<double, double> Func;
+        private readonly Calc Func;
 
         public string Name { get; }
         public string Type { get; }
 
         // Ctor
-        public SingleMission(Func<double, double> func, string name)
+        public SingleMission(Calc func, string name)
         {
             this.Func = func;
             this.Name = name;
@@ -26,8 +26,9 @@ namespace Exercise_1
 
         public double Calculate(double value)
         {
-            OnCalculate?.Invoke(this, value);
-            return Func(value);
+            double result = this.Func(value);
+            OnCalculate?.Invoke(this, result);
+            return result;
         }
     }
 }

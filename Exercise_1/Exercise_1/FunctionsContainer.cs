@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace Exercise_1
 {
-    delegate double Calc(double x, double y); 
+    public delegate double Calc(double value); 
     public class FunctionsContainer
     {
-        private Dictionary<string, Func<double, double>> funcs;
+        private Dictionary<string, Calc> funcs;
 
         // Ctor
         public FunctionsContainer()
         {
-            this.funcs = new Dictionary<string, Func<double, double>>();
+            this.funcs = new Dictionary<string, Calc>();
         }
 
-
         // Indexer
-        public Func<double, double> this[string funcName]
+        public Calc this[string funcName]
         {
             get
             {
-                Func<double, double> func;
-                if (funcs.TryGetValue(funcName, out func))
+                if (funcs.TryGetValue(funcName, out Calc func))
                 {
                     return func;
                 }

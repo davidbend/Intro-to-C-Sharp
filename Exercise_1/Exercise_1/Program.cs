@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Exercise_1
 {
-    delegate int CalcTest(int x, int y);
     class Program
     {
         public static void RunMissions(IList<IMission> missions, double val)

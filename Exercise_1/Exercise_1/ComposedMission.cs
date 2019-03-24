@@ -11,17 +11,17 @@ namespace Exercise_1
         public const string MISSION_TYPE = "Composed";
         public string Name { get; }
         public string Type { get; }
-        List<Func<double, double>> Funcs { get; }
+        List<Calc> Funcs { get; }
 
         // Ctor
         public ComposedMission(string name)
         {
             Name = name;
             Type = MISSION_TYPE;
-            Funcs = new List<Func<double, double>>();
+            Funcs = new List<Calc>();
         }
 
-        public ComposedMission Add(Func<double, double> func)
+        public ComposedMission Add(Calc func)
         {
             Funcs.Add(func);
             return this;
